@@ -11,13 +11,13 @@
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
-*/
+
 
 //rutas para el metodo
-Route::resource('MetodosPago','MetodosPagoController') ;
+//Route::resource('MetodosPago','MetodosPagoController') ;
 //Route::get('/payment_method/delete/{id}', ['as' => '/payment_method/delete', 'uses'=>'PaymentMethodController@delete']);
 //Route::post('/payment_method/search', ['as' => '/payment_method/search', 'uses'=>'PaymentMethodController@search']);
 
