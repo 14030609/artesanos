@@ -399,6 +399,11 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="../js/startmin.js"></script>
+<br><br><br><br><br><br><br>
+
+@yield('list')
+@yield('add')
+@yield('update')
 
 </body>
 </html>

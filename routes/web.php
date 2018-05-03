@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 //rutas para el metodo
-//Route::resource('MetodosPago','MetodosPagoController') ;
-//Route::get('/payment_method/delete/{id}', ['as' => '/payment_method/delete', 'uses'=>'PaymentMethodController@delete']);
-//Route::post('/payment_method/search', ['as' => '/payment_method/search', 'uses'=>'PaymentMethodController@search']);
+Route::resource('MetodosPago','MetodosPagoController') ;
+Route::get('/MetodosPago/delete/{id_MetodosPago}', ['as' => '/MetodosPago/delete', 'uses'=>'MetodosPagoController@delete']);
+Route::post('/MetodosPago/search', ['as' => '/MetodosPago/search', 'uses'=>'MetodosPagoController@search']);
 
