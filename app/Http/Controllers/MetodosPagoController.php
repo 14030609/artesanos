@@ -14,8 +14,11 @@ class MetodosPagoController extends Controller
      */
     public function index()
     {
-        $MetodosPago=MetodosPago::orderBy('id','DESC')->paginate(3);
-        return view('MetodosPago.index',compact('MetodosPago'));
+//        $MetodosPago=MetodosPago::orderBy('id','DESC')->paginate(3);
+  //      return view('MetodosPago.index',compact('MetodosPago'));
+        $payments = MetodosPago::all();
+        return view('MetodosPago.index',['MetodosPago'=>$payments]) ;
+
     }
 
     /**

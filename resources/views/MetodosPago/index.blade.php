@@ -1,106 +1,22 @@
 @extends('welcome')
-@section('content')
-    <div class="row">
-        <section class="content">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="pull-left"><h3>Lista MetodosPago</h3></div>
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <a href="{{ route('metodosPago.create') }}" class="btn btn-info" >Añadir metodosPago</a>
-                            </div>
-                        </div>
-                        <div class="table-container">
-                            <table id="mytable" class="table table-bordred table-striped">
-                                <thead>
-                                <th>Nombre</th>
-                                <th>Resumen</th>
-                                <th>No. Páginas</th>
-                                <th>Edicion</th>
-                                <th>Autor</th>
-                                <th>Precio</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                                </thead>
-                                <tbody>
-                                @if($MetodosPago->count())
-                                    @foreach($MetodosPago as $metodosPago)
-                                        <tr>
-                                            <td>{{$metodosPago->nombre}}</td>
-                                            <td>{{$metodosPago->resumen}}</td>
-                                            <td>{{$metodosPago->npagina}}</td>
-                                            <td>{{$metodosPago->edicion}}</td>
-                                            <td>{{$metodosPago->autor}}</td>
-                                            <td>{{$metodosPago->precio}}</td>
-                                            <td><a class="btn btn-primary btn-xs" href="{{action('metodosPagoController@edit', $metodosPago->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                            <td>
-                                                <form action="{{action('metodosPagoController@destroy', $metodosPago->id)}}" method="post">
-                                                    {{csrf_field()}}
-                                                    <input name="_method" type="hidden" value="DELETE">
-
-                                                    <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="8">No hay registro !!</td>
-                                    </tr>
-                                @endif@extends('layouts.layout')
-@section('content')
-<div class="row">
-  <section class="content">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="pull-left"><h3>Lista MetodosPago</h3></div>
-          <div class="pull-right">
-            <div class="btn-group">
-              <a href="{{ route('metodosPago.create') }}" class="btn btn-info" >Añadir metodosPago</a>
+@section('add')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                {!! Form::open(['route' => 'MetodosPago.store', 'method' => 'post', 'novalidate']) !!}
+                <div class="form-group">
+                    {!! Form::label('full_name', 'Nombre') !!}
+                    {!! Form::text('name', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('email', 'Descripcion') !!}
+                    {!! Form::text('description', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    <div class="form-group">
+                        {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </div>
             </div>
-          </div>
-          <div class="table-container">
-            <table id="mytable" class="table table-bordred table-striped">
-             <thead>
-               <th>Nombre</th>
-               <th>Descripcion</th>
-               <th>Editar</th>
-               <th>Eliminar</th>
-             </thead>
-             <tbody>
-              @if($MetodosPago->count())
-              @foreach($MetodosPago as $metodosPago)
-              <tr>
-                <td>{{$metodosPago->nombre}}</td>
-                <td>{{$metodosPago->descripcion}}</td>
-                <td><a class="btn btn-primary btn-xs" href="{{action('metodosPagoController@edit', $metodosPago->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td>
-                  <form action="{{action('metodosPagoController@destroy', $metodosPago->id)}}" method="post">
-                   {{csrf_field()}}
-                   <input name="_method" type="hidden" value="DELETE">
-
-                   <button class="btn btn-danger btn-xs" type="submit">
-                       <span class="glyphicon glyphicon-trash"></span>
-                   </button>
-                  </form>
-                 </td>
-               </tr>
-               @endforeach
-               @else
-               <tr>
-                <td colspan="8">No hay registro !!</td>
-              </tr>
-              @endif
-            </tbody>
-
-          </table>
         </div>
-      </div>
-      {{ $MetodosPago->links() }}
     </div>
-  </div>
-</section>
-
-@endsection
+@stop
