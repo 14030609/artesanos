@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class MetodosPagoController extends Controller
 {
     public function index() {
+        //DB:
+
         $payments = MetodosPago::all();
         return view('MetodosPago.show',['payments'=>$payments]) ;
     }
@@ -39,7 +41,7 @@ class MetodosPagoController extends Controller
         return redirect()->back();
     }
     public function search(Request $request){
-        $payments = MetodosPago::where('name','like','%'.$request->name.'%')->get();
+        $payments = MetodosPago::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
     public function service()

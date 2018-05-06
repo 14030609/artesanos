@@ -15,7 +15,7 @@ class AddForeignKeysToEnviosTable extends Migration {
 		Schema::table('Envios', function(Blueprint $table)
 		{
 			$table->foreign('id_Ciudad', 'EnviosFk')->references('id_Ciudad')->on('Ciudad')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('id_Cliente', 'EnviosFk2')->references('id_Cliente')->on('Cliente')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_Usuario', 'EnviosFk2')->references('id_Usuario')->on('Usuario')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 

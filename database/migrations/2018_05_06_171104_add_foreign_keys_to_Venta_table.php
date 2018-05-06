@@ -14,7 +14,7 @@ class AddForeignKeysToVentaTable extends Migration {
 	{
 		Schema::table('Venta', function(Blueprint $table)
 		{
-			$table->foreign('id_Cliente', 'VentaFK')->references('id_Cliente')->on('Cliente')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id_Usuario', 'VentaFK')->references('id_Usuario')->on('Usuario')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('id_CuponDescuento', 'VentaFK4')->references('id_CuponDescuento')->on('CuponDescuento')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('id_MetodosPago', 'VentaFK5')->references('id_MetodosPago')->on('MetodosPago')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});

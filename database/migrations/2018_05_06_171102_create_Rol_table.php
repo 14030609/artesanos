@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePerdidaTable extends Migration {
+class CreateRolTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,10 @@ class CreatePerdidaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Perdida', function(Blueprint $table)
+		Schema::create('Rol', function(Blueprint $table)
 		{
-			$table->integer('id_Perdida', true);
-			$table->date('fechaPerdida')->nullable();
-			$table->string('causa', 100)->nullable();
+			$table->integer('id_Rol', true);
+			$table->string('descripcion', 100)->nullable();
 		});
 	}
 
@@ -28,7 +27,7 @@ class CreatePerdidaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Perdida');
+		Schema::drop('Rol');
 	}
 
 }

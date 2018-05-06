@@ -9,8 +9,8 @@
                     {!! Form::text('name', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('email', 'Descripcion') !!}
-                    {!! Form::text('description', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Descripcion') !!}
+                    {!! Form::textarea('description', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                     <div class="form-group">
                         {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}
                     </div>

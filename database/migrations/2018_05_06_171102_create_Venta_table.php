@@ -15,8 +15,7 @@ class CreateVentaTable extends Migration {
 		Schema::create('Venta', function(Blueprint $table)
 		{
 			$table->integer('id_Venta', true);
-			$table->integer('id_Cliente')->nullable()->index('VentaFK');
-			$table->string('id_Empleado', 10)->nullable();
+			$table->integer('id_Usuario')->nullable()->index('VentaFK');
 			$table->date('Fecha_Venta')->nullable();
 			$table->float('Subtotal', 10, 0)->nullable();
 			$table->float('iva', 10, 0)->nullable();

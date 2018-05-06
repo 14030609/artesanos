@@ -21,7 +21,7 @@ class CreateEnviosTable extends Migration {
 			$table->integer('id_Estado');
 			$table->string('telefono', 20)->nullable();
 			$table->string('direccion', 100)->nullable();
-			$table->integer('id_Cliente')->nullable()->index('EnviosFk2');
+			$table->integer('id_Usuario')->nullable()->index('EnviosFk2');
 			$table->primary(['id_Envio','id_Ciudad','id_Estado']);
 			$table->index(['id_Ciudad','id_Estado'], 'EnviosFk');
 		});
