@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use
     App\MetodosPago;
+use DB;
 use Illuminate\Http\Request;
 
 class MetodosPagoController extends Controller
@@ -11,6 +12,7 @@ class MetodosPagoController extends Controller
         //DB:
 
         $payments = MetodosPago::all();
+
         return view('MetodosPago.show',['payments'=>$payments]) ;
     }
     public function store(Request $request)
@@ -25,7 +27,8 @@ class MetodosPagoController extends Controller
     }
     public function edit($id)
     {
-        $payment = MetodosPago::find($id);
+        $payment =MetodosPago::where('id_MetodosPago',$id)->get();
+        $payment=$payment[0];
         return view('MetodosPago.edit',compact('payment'));
     }
     public function update(Request $request)
@@ -36,10 +39,12 @@ class MetodosPagoController extends Controller
     }
     public function delete($id)
     {
-        $payment = MetodosPago::find($id);
-        $payment->delete();
+        $metodo =MetodosPago::where('id_MetodosPago',$id);
+        $metodo->delete();
+
         return redirect()->back();
     }
+
     public function search(Request $request){
         $payments = MetodosPago::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);

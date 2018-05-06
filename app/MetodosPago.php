@@ -8,6 +8,6 @@ class MetodosPago extends Model
 {
     protected $table='MetodosPago';
     protected $fillable = ['nombre', 'descripcion'];
-
+    protected $guarded = ['id'];
     public $timestamps  = false;
 }

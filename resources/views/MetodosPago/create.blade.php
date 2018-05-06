@@ -6,11 +6,11 @@
                 {!! Form::open(['route' => 'MetodosPago.store', 'method' => 'post', 'novalidate']) !!}
                 <div class="form-group">
                     {!! Form::label('full_name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::text('nombre', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('full_name', 'Descripcion') !!}
-                    {!! Form::textarea('description', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::textarea('descripcion', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                     <div class="form-group">
                         {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}
                     </div>
