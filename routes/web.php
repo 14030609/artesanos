@@ -40,3 +40,8 @@ Route::post('/Estado/search', ['as' => '/Estado/search', 'uses'=>'EstadoControll
 Route::resource('Ciudad','CiudadController') ;
 Route::get('/Ciudad/delete/{id_Ciudad}', ['as' => '/Ciudad/delete', 'uses'=>'CiudadController@delete']);
 Route::post('/Ciudad/search', ['as' => '/Ciudad/search', 'uses'=>'CiudadController@search']);
+
+//rutas para Envio
+Route::resource('Envios','EnviosController') ;
+Route::get('/Envios/delete/{id_Envio}', ['as' => '/Envios/delete', 'uses'=>'EnviosController@delete']);
+Route::post('/Envios/search', ['as' => '/Envios/search', 'uses'=>'EnvioController@search']);
