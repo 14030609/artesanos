@@ -1,51 +1,51 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\MetodosPago;
+use App\Producto;
 use DB;
 use Illuminate\Http\Request;
 
-class MetodosPagoController extends Controller
+class ProductoController extends Controller
 {
     public function index() {
         //DB:
 
-        $payments = MetodosPago::all();
+        $payments = Producto::all();
 
-        return view('MetodosPago.show',['payments'=>$payments]) ;
+        return view('Producto.show',['payments'=>$payments]) ;
     }
     public function store(Request $request)
     {
-        $payment = new MetodosPago();
+        $payment = new Producto();
         $payment->create($request->all());
-        return redirect('/MetodosPago');
+        return redirect('/Producto');
     }
     public function create()
     {
-        return view('MetodosPago.create');
+        return view('Producto.create');
     }
     public function edit($id)
     {
-        $payment =MetodosPago::where('id_MetodosPago',$id)->get();
+        $payment =Producto::where('id_Producto',$id)->get();
         $payment=$payment[0];
-        return view('MetodosPago.edit',compact('payment'));
+        return view('Producto.edit',compact('payment'));
     }
     public function update(Request $request)
     {
-        $payment =MetodosPago::where('id_MetodosPago',$request)->get();
+        $payment =Producto::where('id_Producto',$request)->get();
         $payment->save();
-        return redirect('/MetodosPago');
+        return redirect('/Producto');
     }
     public function delete($id)
     {
-        $metodo =MetodosPago::where('id_MetodosPago',$id);
+        $metodo =Producto::where('id_Producto',$id);
         $metodo->delete();
 
         return redirect()->back();
     }
 
     public function search(Request $request){
-        $payments = MetodosPago::where('nombre','like','%'.$request->nombre.'%')->get();
+        $payments = Producto::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
     public function service()

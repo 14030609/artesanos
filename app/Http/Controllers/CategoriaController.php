@@ -1,51 +1,51 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\MetodosPago;
+use App\Categoria;
 use DB;
 use Illuminate\Http\Request;
 
-class MetodosPagoController extends Controller
+class CategoriaController extends Controller
 {
     public function index() {
         //DB:
 
-        $payments = MetodosPago::all();
+        $payments = Categoria::all();
 
-        return view('MetodosPago.show',['payments'=>$payments]) ;
+        return view('Categoria.show',['payments'=>$payments]) ;
     }
     public function store(Request $request)
     {
-        $payment = new MetodosPago();
+        $payment = new Categoria();
         $payment->create($request->all());
-        return redirect('/MetodosPago');
+        return redirect('/Categoria');
     }
     public function create()
     {
-        return view('MetodosPago.create');
+        return view('Categoria.create');
     }
     public function edit($id)
     {
-        $payment =MetodosPago::where('id_MetodosPago',$id)->get();
+        $payment =Categoria::where('id_Categoria',$id)->get();
         $payment=$payment[0];
-        return view('MetodosPago.edit',compact('payment'));
+        return view('Categoria.edit',compact('payment'));
     }
     public function update(Request $request)
     {
-        $payment =MetodosPago::where('id_MetodosPago',$request)->get();
+        $payment =Categoria::where('id_Categoria',$request)->get();
         $payment->save();
-        return redirect('/MetodosPago');
+        return redirect('/Categoria');
     }
     public function delete($id)
     {
-        $metodo =MetodosPago::where('id_MetodosPago',$id);
+        $metodo =Categoria::where('id_Categoria',$id);
         $metodo->delete();
 
         return redirect()->back();
     }
 
     public function search(Request $request){
-        $payments = MetodosPago::where('nombre','like','%'.$request->nombre.'%')->get();
+        $payments = Categoria::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
     public function service()
