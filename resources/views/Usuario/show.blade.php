@@ -8,31 +8,33 @@
 @section('list')
     <div class="container">
         <div class="row">
-            {!! Form::open(['route' => '/MetodosPago/search', 'method' => 'post', 'novalidate', 'class' => 'form-inline']) !!}
+            {!! Form::open(['route' => '/Usuario/search', 'method' => 'post', 'novalidate', 'class' => 'form-inline']) !!}
             <div class="form-group">
                 <label for="exampleInputName2">Nombre</label>
                 <input type="text" class="form-control" name = "name" >
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
-            <a href="{{ route('MetodosPago.index') }}" class="btn btn-outline-primary">Todos</a>
-            <a href="{{ route('MetodosPago.create') }}" class="btn btn-outline-success">Agregar</a>
+            <a href="{{ route('Usuario.index') }}" class="btn btn-outline-primary">Todos</a>
+            <a href="{{ route('Usuario.create') }}" class="btn btn-outline-success">Agregar</a>
             <br>
             {!! Form::close() !!}
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
+                    <th>Password</th>
+                    <th>id_Rol</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($payments as $payment)
+                @foreach($usuarios as $usuario)
                     <tr>
-                        <td>{{ $payment->nombre }}</td>
-                        <td>{{ $payment->descripcion }}</td>
+                        <td>{{ $usuario->nombre_Usuario }}</td>
+                        <td>{{ $usuario->pass }}</td>
+                        <td>{{ $usuario->id_Rol }}</td>
                         <td>
-                            <a class="btn btn-outline-primary btn-xs" href="{{ route('MetodosPago.edit',['id' => $payment->id_MetodosPago] )}}" >Editar</a>
-                            <a class="btn btn-outline-danger btn-xs" href="{{ route('/MetodosPago/delete',['id' => $payment->id_MetodosPago] )}}" >Eliminar</a>
+                            <a class="btn btn-outline-primary btn-xs" href="{{ route('Usuario.edit',['id' => $usuario->id_Usuario] )}}" >Editar</a>
+                            <a class="btn btn-outline-danger btn-xs" href="{{ route('/Usuario/delete',['id' => $usuario->id_Usuario] )}}" >Eliminar</a>
                         </td>
 
                     </tr>

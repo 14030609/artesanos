@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                {!! Form::model($estados,array('route' =>['Estado.update',$estados->id_Estado],'method'=>'PUT')) !!}
+                {!! Form::model($ciudads,array('route' =>['Ciudad.update',$ciudads->id_Ciudad],'method'=>'PUT')) !!}
 
-                {!! Form::hidden('id', $estados->id_Estado) !!}
+                {!! Form::hidden('id', $ciudads->id_Ciudad) !!}
 
                 <div class="form-group">
                     {!! Form::label('full_name', 'Nombre') !!}
