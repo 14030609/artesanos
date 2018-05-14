@@ -21,7 +21,8 @@
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Descripcion</th>
+                    <th>Nombre</th>
+                    <th>id_Estado</th>
                 </tr>
                 </thead>
                 <tbody>

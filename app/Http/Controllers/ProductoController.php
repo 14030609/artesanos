@@ -32,8 +32,7 @@ class ProductoController extends Controller
     }
     public function update(Request $request)
     {
-        $payment =Producto::where('id_Producto',$request)->get();
-        $payment->save();
+        $product = Producto::where('id_Producto',$request->id)->update(['id_Categoria'=>$request->id_Categoria,'Nombre'=>$request->Nombre,'precioVenta'=>$request->precioVenta,'precioCompra'=>$request->precioCompra]);
         return redirect('/Producto');
     }
     public function delete($id)

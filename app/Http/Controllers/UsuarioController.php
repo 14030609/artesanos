@@ -33,8 +33,7 @@ class UsuarioController extends Controller
     }
     public function update(Request $request)
     {
-        $usuarios = Usuario::find($request->id_Usuario);
-        $usuarios->update($request->all());
+        $usuario = Usuario::where('id_Usuario',$request->id)->update(['nombre_Usuario'=>$request->nombre_Usuario,'pass'=>$request->pass,'id_Rol'=>$request->id_Rol]);
         return redirect('/Usuario');
     }
     public function delete($id)

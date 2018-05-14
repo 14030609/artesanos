@@ -32,8 +32,9 @@ class CategoriaController extends Controller
     }
     public function update(Request $request)
     {
-        $payment =Categoria::where('id_Categoria',$request)->get();
-        $payment->save();
+        $payment = Categoria::where('id_Categoria', $request->id)
+            ->update(['Descripcion'=>$request->Descripcion]);
+
         return redirect('/Categoria');
     }
     public function delete($id)

@@ -33,9 +33,11 @@ class EstadoController extends Controller
     }
     public function update(Request $request)
     {
-        $estados = Estado::find($request->id_Estado);
-        $estados->update($request->all());
+
+        $estados = Estado::where('id_Estado',$request->id)->update(['Nombre'=>$request->nombre]);
         return redirect('/Estado');
+
+
     }
     public function delete($id)
     {

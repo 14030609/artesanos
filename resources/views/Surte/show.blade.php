@@ -37,7 +37,7 @@
                         <td>{{ $payment->Cantidad}}</td>
 
                         <td>
-                            <a class="btn btn-outline-primary btn-xs" href="{{ route('Surte.edit',['id' => $payment->id_Surte] )}}" >Editar</a>
+                            <a class="btn btn-outline-primary btn-xs" href="{{ route('Surte.edit',['id' => $payment->id_Proveedor] )}}" >Editar</a>
                             <a class="btn btn-outline-danger btn-xs" href="{{ route('/Surte/delete',['id' => $payment->id_Surte] )}}" >Eliminar</a>
                         </td>
 

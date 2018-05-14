@@ -33,9 +33,7 @@ class ProveedorController extends Controller
     }
     public function update(Request $request)
     {
-        $payment = Proveedor::find($request->id_Proveedor)->get();
-        $payment=$payment[0];
-        $payment->update($request->all());
+        $proveedor = Proveedor::where('id_Proveedor',$request->id)->update(['nombre'=>$request->nombre,'telefono'=>$request->telefono,'direccion'=>$request->direccion,'e_mail'=>$request->e_mail]);
         return redirect('/Proveedor');
     }
     public function delete($id)

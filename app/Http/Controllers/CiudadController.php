@@ -33,8 +33,7 @@ class CiudadController extends Controller
     }
     public function update(Request $request)
     {
-        $ciudads = Ciudad::find($request->id_Ciudad);
-        $ciudads->update($request->all());
+        $ciudads = Ciudad::where('id_Ciudad',$request->id)            ->update(['nombre' => $request->nombre,'id_Estado'=>$request->id_Estado]);
         return redirect('/Ciudad');
     }
     public function delete($id)

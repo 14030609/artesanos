@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                {!! Form::model($payment,array('route' =>['Surte.update',$payment->id_Surte],'method'=>'PUT')) !!}
+                {!! Form::model($payment,array('route' =>['Surte.update',$payment->id_Proveedor],'method'=>'PUT')) !!}
 
-                {!! Form::hidden('id', $payment->id_Surte) !!}
+                {!! Form::hidden('id', $payment->id_Proveedor) !!}
 
                 <div class="form-group">
                     {!! Form::label('full_name', 'id del proveedor') !!}
@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('Cantidad', 'Cantidad') !!}
-                    {!! Form::date('cantidad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::date('Cantidad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}

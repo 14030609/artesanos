@@ -26,21 +26,19 @@ class SurteController extends Controller
     }
     public function edit($id)
     {
-        $payment =Surte::where('id_Surte',$id)->get();
+        $payment =Surte::where('id_Proveedor',$id)->get();
         $payment=$payment[0];
 
         return view('Surte.edit',compact('payment'));
     }
     public function update(Request $request)
     {
-        $payment = Surte::find($request->id_Surte)->get();
-        $payment=$payment[0];
-        $payment->update($request->all());
+        $surte = Surte::where('id_Proveedor',$request->id)->update(['id_Proveedor'=>$request->id_Proveedor,'id_Producto'=>$request->id_Producto ,'fecha'=>$request->fecha,'Cantidad'=>$request->Cantidad]);
         return redirect('/Surte');
     }
     public function delete($id)
     {
-        $metodo =Surte::where('id_Surte',$id);
+        $metodo =Surte::where('id_Proveedor',$id);
         $metodo->delete();
         return redirect()->back();
     }

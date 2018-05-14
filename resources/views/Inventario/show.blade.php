@@ -33,8 +33,8 @@
                         <td>{{ $payment->id_Categoria }}</td>
                         <td>{{ $payment->Cantidad }}</td>
                         <td>
-                            <a class="btn btn-outline-primary btn-xs" href="{{ route('Inventario.edit',['id' => $payment->id_Inventario] )}}" >Editar</a>
-                            <a class="btn btn-outline-danger btn-xs" href="{{ route('/Inventario/delete',['id' => $payment->id_Inventario] )}}" >Eliminar</a>
+                            <a class="btn btn-outline-primary btn-xs" href="{{ route('Inventario.edit',['id' => $payment->id_Producto] )}}" >Editar</a>
+                            <a class="btn btn-outline-danger btn-xs" href="{{ route('/Inventario/delete',['id' => $payment->id_Producto] )}}" >Eliminar</a>
                         </td>
 
                     </tr>

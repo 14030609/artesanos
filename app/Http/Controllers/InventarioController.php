@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Inventario;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\In;
 
 class InventarioController extends Controller
 {
@@ -26,19 +27,19 @@ class InventarioController extends Controller
     }
     public function edit($id)
     {
-        $payment =Inventario::where('id_Inventario',$id)->get();
+        $payment =Inventario::where('id_Producto',$id)->get();
         $payment=$payment[0];
         return view('Inventario.edit',compact('payment'));
     }
     public function update(Request $request)
     {
-        $payment =Inventario::where('id_Inventario',$request)->get();
-        $payment->save();
+
+        $estados = Inventario::where('id_Producto',$request->id)->update(['id_Producto'=>$request->id_Producto,'id_Categoria'=>$request->id_Categoria,'Cantidad'=>$request->Cantidad]);
         return redirect('/Inventario');
     }
     public function delete($id)
     {
-        $metodo =Inventario::where('id_Inventario',$id);
+        $metodo =Inventario::where('id_Producto',$id);
         $metodo->delete();
 
         return redirect()->back();

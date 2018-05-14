@@ -33,8 +33,7 @@ class rolController extends Controller
     }
     public function update(Request $request)
     {
-        $rols = Rol::find($request->id_Rol);
-        $rols->update($request->all());
+        $rol = Rol::where('id_Rol',$request->id)->update(['descripcion'=>$request->descripcion]);
         return redirect('/Rol');
     }
     public function delete($id)

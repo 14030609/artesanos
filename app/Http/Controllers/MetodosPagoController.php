@@ -32,10 +32,12 @@ class MetodosPagoController extends Controller
     }
     public function update(Request $request)
     {
-        $payment =MetodosPago::where('id_MetodosPago',$request)->get();
-        $payment->save();
+        $payment = MetodosPago::where('id_MetodosPago', $request->id)
+            ->update(['nombre' => $request->nombre,'descripcion'=>$request->descripcion]);
+
         return redirect('/MetodosPago');
     }
+
     public function delete($id)
     {
         $metodo =MetodosPago::where('id_MetodosPago',$id);

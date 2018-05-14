@@ -16,18 +16,17 @@
                     {!! Form::text('descripcion', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('full_name', 'Nombre') !!}
-                    {!! Form::date('fecha_inicio', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Fecha de Inicio') !!}
+                    {!! Form::text('fecha_inicio', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::label('email', 'Descripcion') !!}
-                    {!! Form::date('fecha_termino', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('email', 'Fecha de Termino') !!}
+                    {!! Form::text('fecha_termino', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    <div class="form-group">
+                        {!! Form::label('email', 'Porcentaje') !!}
+                        {!! Form::text('porcentaje', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    </div>
                 </div>
-                <div class="form-group">
-                    {!! Form::label('full_name', 'Nombre') !!}
-                    {!! Form::text('porcentaje', null, ['class' => 'form-control' , 'required' => 'required']) !!}
-                </div>
-
                 <div class="form-group">
                     {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}
                 </div>

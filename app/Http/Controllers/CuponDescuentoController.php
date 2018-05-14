@@ -31,8 +31,7 @@ class CuponDescuentoController extends Controller
     }
     public function update(Request $request)
     {
-        $payment = CuponDescuento::find($request->id_CuponDescuento);
-        $payment->update($request->all());
+        $cupon = CuponDescuento::where('id_CuponDescuento',$request->id)->update(['nombre' => $request->nombre,'descripcion'=>$request->descripcion,'fecha_inicio'=>$request->fecha_inicio,'fecha_termino'=>$request->fecha_termino,'porcentaje'=>$request->porcentaje]);
         return redirect('/CuponDescuento');
     }
     public function delete($id)

@@ -24,9 +24,8 @@ Route::resource('MetodosPago','MetodosPagoController') ;
 Route::get('/MetodosPago/delete/{id_MetodosPago}', ['as' => '/MetodosPago/delete', 'uses'=>'MetodosPagoController@delete']);
 Route::post('/MetodosPago/search', ['as' => '/MetodosPago/search', 'uses'=>'MetodosPagoController@search']);
 
-<<<<<<< HEAD
-//rutas para el CuponDecuentos
-//rutas para el CuponDecuentos
+
+//rutas para el CuponDescuentos
 Route::resource('CuponDescuento','CuponDescuentoController') ;
 Route::get('/CuponDescuento/delete/{id_CuponDescuento}', ['as' => '/CuponDescuento/delete', 'uses'=>'CuponDescuentoController@delete']);
 Route::post('/CuponDescuento/search', ['as' => '/CuponDescuento/search', 'uses'=>'CuponDescuentoController@search']);
@@ -55,7 +54,8 @@ Route::post('/Producto/search', ['as' => '/Producto/search', 'uses'=>'ProductoCo
 Route::resource('Inventario','InventarioController') ;
 Route::get('/Inventario/delete/{id_Inventario}', ['as' => '/Inventario/delete', 'uses'=>'InventarioController@delete']);
 Route::post('/Inventario/search', ['as' => '/Inventario/search', 'uses'=>'InventarioController@search']);
-=======
+
+
 //rutas para Usuario
 Route::resource('Usuario','UsuarioController') ;
 Route::get('/Usuario/delete/{id_Usuario}', ['as' => '/Usuario/delete', 'uses'=>'UsuarioController@delete']);
@@ -75,4 +75,6 @@ Route::post('/Estado/search', ['as' => '/Estado/search', 'uses'=>'EstadoControll
 Route::resource('Ciudad','CiudadController') ;
 Route::get('/Ciudad/delete/{id_Ciudad}', ['as' => '/Ciudad/delete', 'uses'=>'CiudadController@delete']);
 Route::post('/Ciudad/search', ['as' => '/Ciudad/search', 'uses'=>'CiudadController@search']);
->>>>>>> 4cc6f1be3195c79823084c817db068788dd27c39
+
+
+
