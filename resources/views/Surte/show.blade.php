@@ -7,7 +7,18 @@
 <body>
 @section('list')
     <div class="container">
+
+
         <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Surtir Productos</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-0">
             {!! Form::open(['route' => '/Surte/search', 'method' => 'post', 'novalidate', 'class' => 'form-inline']) !!}
             <div class="form-group">
                 <label for="exampleInputName2">Nombre</label>
@@ -45,6 +56,7 @@
                 @endforeach
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 @stop

@@ -2,7 +2,7 @@
 @section('update')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-8 col-md-offset-0">
                 {!! Form::model($usuarios,array('route' =>['Usuario.update',$usuarios->id_Usuario],'method'=>'PUT')) !!}
 
                 {!! Form::hidden('id', $usuarios->id_Usuario) !!}
