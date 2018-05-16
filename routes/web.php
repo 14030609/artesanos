@@ -30,11 +30,14 @@ Route::get('api/v1/MetodosPago','MetodosPagoController@serviceWeb');
 Route::resource('CuponDescuento','CuponDescuentoController') ;
 Route::get('/CuponDescuento/delete/{id_CuponDescuento}', ['as' => '/CuponDescuento/delete', 'uses'=>'CuponDescuentoController@delete']);
 Route::post('/CuponDescuento/search', ['as' => '/CuponDescuento/search', 'uses'=>'CuponDescuentoController@search']);
+Route::get('api/v1/CuponDescuento','CuponDescuentoController@serviceWeb');
 
-//rutas para el CuponDecuentos
+//rutas para el proveedor
 Route::resource('Proveedor','ProveedorController') ;
 Route::get('/Proveedor/delete/{id_Proveedor}', ['as' => '/Proveedor/delete', 'uses'=>'ProveedorController@delete']);
 Route::post('/Proveedor/search', ['as' => '/Proveedor/search', 'uses'=>'ProveedorController@search']);
+Route::get('api/v1/Proveedor','ProveedorController@serviceWeb');
+
 
 //rutas para el Surte
 Route::resource('Surte','SurteController') ;
@@ -50,6 +53,7 @@ Route::post('/Categoria/search', ['as' => '/Categoria/search', 'uses'=>'Categori
 Route::resource('Producto','ProductoController') ;
 Route::get('/Producto/delete/{id_Producto}', ['as' => '/Producto/delete', 'uses'=>'ProductoController@delete']);
 Route::post('/Producto/search', ['as' => '/Producto/search', 'uses'=>'ProductoController@search']);
+Route::get('api/v1/Prodcucto','ProductoController@serviceWeb');
 
 //rutas para el Inventario
 Route::resource('Inventario','InventarioController') ;

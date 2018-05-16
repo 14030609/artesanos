@@ -47,8 +47,11 @@ class ProductoController extends Controller
         $payments = Producto::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
-    public function service()
-    {
 
+
+    public function serviceWeb()
+    {
+        $producto=Producto::all();
+        return response()->json($producto);
     }
 }

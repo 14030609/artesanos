@@ -46,8 +46,9 @@ class CuponDescuentoController extends Controller
         $payments = CuponDescuento::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $cupon=CuponDescuento::all();
+        return response()->json($cupon);
     }
 }

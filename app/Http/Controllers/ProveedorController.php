@@ -47,8 +47,9 @@ class ProveedorController extends Controller
         $payments = Proveedor::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $proveedor=Proveedor::all();
+        return response()->json($proveedor);
     }
 }
