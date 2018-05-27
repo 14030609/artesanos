@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Categoria;
 use App\Producto;
 use DB;
 use Illuminate\Http\Request;
@@ -9,10 +10,11 @@ class ProductoController extends Controller
 {
     public function index() {
         //DB:
-
-        $payments = Producto::all();
-
-        return view('Producto.show',['payments'=>$payments]) ;
+        $nombreProducto = DB::table('Producto')
+            -> select('Categoria.Descripcion','Producto.nombre','Producto.precioCompra','Producto.precioVenta','Producto.id_Producto')
+            ->join('Categoria','Producto.id_Categoria','=','Categoria.id_Categoria')
+            ->get();
+        return view('Producto.show',compact('payments','nombreProducto')) ;
     }
     public function store(Request $request)
     {
@@ -22,7 +24,10 @@ class ProductoController extends Controller
     }
     public function create()
     {
-        return view('Producto.create');
+        $category=Categoria::pluck('Descripcion','id_Categoria');
+
+        return view('Producto.create',compact('category'));
+        //return view('Producto.create');
     }
     public function edit($id)
     {

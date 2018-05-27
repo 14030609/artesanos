@@ -11,16 +11,21 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'Ciudad.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'Ciudad.store', 'method' => 'post', 'validate']) !!}
                 <div class="form-group">
-                    {!! Form::label('full_name', 'nombre') !!}
+                    {!! Form::label('full_name', 'Nombre') !!}
                     {!! Form::text('nombre', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'id_Estado') !!}
-                    {!! Form::text('id_Estado', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Estado') !!}
+                    <select class="form-control" name="id_Estado", id="id_Estado">
+
+                        @foreach($estado as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
 

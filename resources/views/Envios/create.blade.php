@@ -12,46 +12,46 @@
         <div class="row">
 
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'Envios.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'Envios.store', 'method' => 'post', 'validate']) !!}
+
                 <div class="form-group">
-                    {!! Form::label('full_name', 'nombre') !!}
+                    {!! Form::label('full_name', 'Usuario') !!}
+                    {!! Form::text('id_Usuario', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('full_name', 'Persona que recibe') !!}
                     {!! Form::text('nombre', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'email') !!}
-                    {!! Form::text('email', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Email') !!}
+                    {!! Form::email('email', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'id_Ciudad') !!}
-                    {!! Form::text('id_Ciudad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
-                </div>
-
-
-                <div class="form-group">
-                    {!! Form::label('full_name', 'id_Estado') !!}
+                    {!! Form::label('full_name', 'Estado') !!}
                     {!! Form::text('id_Estado', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'telefono') !!}
+                    {!! Form::label('full_name', 'Ciudad') !!}
+                    {!! Form::text('id_Ciudad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                </div>
+
+
+                <div class="form-group">
+                    {!! Form::label('full_name', 'Teléfono') !!}
                     {!! Form::text('telefono', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'direccion') !!}
+                    {!! Form::label('full_name', 'Dirección') !!}
                     {!! Form::text('direccion', null, ['class' => 'form-control' , 'required' => 'required']) !!}
-                </div>
-
-
-                <div class="form-group">
-                    {!! Form::label('full_name', 'id_Usuario') !!}
-                    {!! Form::text('id_Usuario', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 

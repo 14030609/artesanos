@@ -30,17 +30,15 @@
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Password</th>
-                    <th>id_Rol</th>
+                    <th>Email</th>
+                    <th>Rol</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($usuarios as $usuario)
                     <tr>
                         <td>{{ $usuario->nombre_Usuario }}</td>
-                        <td>{{ $usuario->pass }}</td>
-                        <td>{{ $usuario->id_Rol }}</td>
+                        <td>{{ $usuario->descripcion }}</td>
                         <td>
                             <a class="btn btn-outline-primary btn-xs" href="{{ route('Usuario.edit',['id' => $usuario->id_Usuario] )}}" >Editar</a>
                             <a class="btn btn-outline-danger btn-xs" href="{{ route('/Usuario/delete',['id' => $usuario->id_Usuario] )}}" >Eliminar</a>

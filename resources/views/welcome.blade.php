@@ -184,6 +184,12 @@
                         <a href="/Categoria"><i class="fa fa-edit fa-fw"></i> Categoria</a>
                     </li>
                     <li>
+                        <a href="/Surte"><i class="fa fa-edit fa-fw"></i> Surtir</a>
+                    </li>
+                    <li>
+                        <a href="/Rol"><i class="fa fa-edit fa-fw"></i> Rol</a>
+                    </li>
+                    <li>
                         <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <!-- /.nav-second-level -->
                     </li>
@@ -194,13 +200,9 @@
 
     <div id="page-wrapper">
 
-
-
+        @yield('update')
         @yield('list')
         @yield('add')
-        @yield('update')
-
-
 
 
     </div>

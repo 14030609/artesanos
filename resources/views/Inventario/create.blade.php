@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'Inventario.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'Inventario.store', 'method' => 'post', 'validate']) !!}
                 <div class="form-group">
                     {!! Form::label('full_name', 'id de producto') !!}
                     {!! Form::text('id_Producto', null, ['class' => 'form-control' , 'required' => 'required']) !!}

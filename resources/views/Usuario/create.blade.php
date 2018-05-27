@@ -11,27 +11,32 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'Usuario.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'Usuario.store', 'method' => 'post', 'validate']) !!}
                 <div class="form-group">
-                    {!! Form::label('full_name', 'Nombre') !!}
-                    {!! Form::text('nombre_Usuario', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Email') !!}
+                    {!! Form::email('nombre_Usuario', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'pass') !!}
+                    {!! Form::label('full_name', 'Contraseña') !!}
                     {!! Form::text('pass', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
 
 
                 <div class="form-group">
-                    {!! Form::label('full_name', 'id_Rol') !!}
-                    {!! Form::text('id_Rol', null, ['class' => 'form-control' , 'required' => 'required']) !!}
-                    <div class="form-group">
-                        {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}
-                    </div>
-                    {!! Form::close() !!}
+                    {!! Form::label('full_name', 'Rol') !!}
+
+                    <select class="form-control" name="id_Rol", id="id_Rol">
+
+                        @foreach($rol as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
+
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}
                 </div>
+                    {!! Form::close() !!}
             </div>
         </div>
     </div>

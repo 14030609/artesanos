@@ -23,6 +23,7 @@ class rolController extends Controller
     }
     public function create()
     {
+
         return view('Rol.create');
     }
     public function edit($id)

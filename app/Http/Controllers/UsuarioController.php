@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Rol;
 use
     App\Usuario;
 use DB;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;use Illuminate\Support\Facades\App;
 
 class UsuarioController extends Controller
 {
@@ -12,6 +13,9 @@ class UsuarioController extends Controller
         //DB:
 
         $usuarios = Usuario::all();
+        $usuarios = DB::table('Usuario')
+            ->join('Rol','Usuario.id_Rol','=','Rol.id_Rol')
+            ->get();
 
         return view('Usuario.show',['usuarios'=>$usuarios]) ;
     }
@@ -23,7 +27,10 @@ class UsuarioController extends Controller
     }
     public function create()
     {
-        return view('Usuario.create');
+        $rol=Rol::pluck('descripcion','id_Rol');
+
+        return view('Usuario.create',compact('rol'));
+        //return view('Usuario.create');
     }
     public function edit($id)
     {
@@ -48,8 +55,8 @@ class UsuarioController extends Controller
         $usuarios = Usuario::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('usuarios_method.usuarios_methods_list',['usuarios'=>$usuarios]);
     }
-    public function service()
+    public function in()
     {
-
+        return view('Usuario.in',compact('usuarios'));
     }
 }

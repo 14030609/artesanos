@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Producto;
+use App\Proveedor;
 use App\Surte;
 use DB;
 use Illuminate\Http\Request;
@@ -9,10 +11,12 @@ class SurteController extends Controller
 {
     public function index() {
         //DB:
-
-        $payments = Surte::all();
-
-        return view('Surte.show',['payments'=>$payments]) ;
+        $surte = DB::table('Proveedor')
+            -> select('Proveedor.nombre AS proveedor','Producto.nombre AS producto','Producto.id_Producto','Proveedor.id_Proveedor','Surte.fecha','Surte.cantidad')
+            ->join('Surte','Proveedor.id_Proveedor','=','Surte.id_Proveedor')
+            ->join('Producto','Surte.id_Producto','=','Producto.id_Producto')
+            ->get();
+        return view('Surte.show',compact('surte'));
     }
     public function store(Request $request)
     {
@@ -22,7 +26,12 @@ class SurteController extends Controller
     }
     public function create()
     {
-        return view('Surte.create');
+        $producto=Producto::pluck('Nombre','id_Producto');
+        $proveedor=Proveedor::pluck('nombre','id_Proveedor');
+
+
+        return view('Surte.create',compact('producto','proveedor'));
+        //return view('Surte.create');
     }
     public function edit($id)
     {
@@ -36,9 +45,9 @@ class SurteController extends Controller
         $surte = Surte::where('id_Proveedor',$request->id)->update(['id_Proveedor'=>$request->id_Proveedor,'id_Producto'=>$request->id_Producto ,'fecha'=>$request->fecha,'Cantidad'=>$request->Cantidad]);
         return redirect('/Surte');
     }
-    public function delete($id)
+    public function delete($id_Proveedor,$id_Producto,$fecha)
     {
-        $metodo =Surte::where('id_Proveedor',$id);
+        $metodo =Surte::where('id_Proveedor', '=', $id_Proveedor)->where('id_Producto', '=', $id_Producto)->where('fecha','=',$fecha);
         $metodo->delete();
         return redirect()->back();
     }

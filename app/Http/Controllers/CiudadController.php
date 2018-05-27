@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 use
     App\Ciudad;
+use App\Estado;
 use DB;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;use Illuminate\Support\Facades\App;
 
 class CiudadController extends Controller
 {
     public function index() {
         //DB:
 
-        $ciudads = Ciudad::all();
+        $ciudads = DB::table('Estado')
+            ->select('Estado.nombre AS estado', 'Ciudad.nombre AS ciudad','Ciudad.id_Ciudad')
+            ->join('Ciudad','Estado.id_Estado','=','Ciudad.id_Estado')
+            ->get();
 
-        return view('Ciudad.show',['ciudads'=>$ciudads]) ;
+        return view('Ciudad.show',compact('ciudads')) ;
+
     }
     public function store(Request $request)
     {
@@ -23,7 +28,11 @@ class CiudadController extends Controller
     }
     public function create()
     {
-        return view('Ciudad.create');
+
+        $estado=Estado::pluck('nombre','id_Estado');
+
+        return view('Ciudad.create',compact('estado'));
+        //return view('Ciudad.create');
     }
     public function edit($id)
     {

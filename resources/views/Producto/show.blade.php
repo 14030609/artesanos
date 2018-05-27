@@ -31,17 +31,17 @@
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>id_Categoria</th>
+                    <th>Categoria</th>
                     <th>Nombre</th>
                     <th>precio de venta</th>
                     <th>precio de compra </th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($payments as $payment)
+                @foreach($nombreProducto as $payment)
                     <tr>
-                        <td>{{ $payment->id_Categoria}}</td>
-                        <td>{{ $payment->Nombre }}</td>
+                        <td>{{ $payment->Descripcion}}</td>
+                        <td>{{ $payment->nombre }}</td>
                         <td>{{ $payment->precioVenta }}</td>
                         <td>{{ $payment->precioCompra }}</td>
 

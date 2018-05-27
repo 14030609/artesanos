@@ -34,9 +34,9 @@
                 <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
-                    <th>e_mail</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Email</th>
                 </tr>
                 </thead>
                 <tbody>

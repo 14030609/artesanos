@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'Rol.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'Rol.store', 'method' => 'post', 'validate']) !!}
                 <div class="form-group">
                     {!! Form::label('full_name', 'descripcion') !!}
                     {!! Form::text('descripcion', null, ['class' => 'form-control' , 'required' => 'required']) !!}

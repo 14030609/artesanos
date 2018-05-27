@@ -13,14 +13,14 @@
 
 
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'CuponDescuento.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'CuponDescuento.store', 'method' => 'post', 'validate']) !!}
                 <div class="form-group">
                     {!! Form::label('full_name', 'Nombre') !!}
                     {!! Form::text('nombre', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('full_name', 'Descripcion') !!}
-                    {!! Form::textarea('descripcion', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::text('descripcion', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('full_name', 'Fecha de inicio') !!}

@@ -41,7 +41,7 @@ Route::get('api/v1/Proveedor','ProveedorController@serviceWeb');
 
 //rutas para el Surte
 Route::resource('Surte','SurteController') ;
-Route::get('/Surte/delete/{id_Surte}', ['as' => '/Surte/delete', 'uses'=>'SurteController@delete']);
+Route::get('/Surte/delete/{id_Proveedor}/{id_Producto}/{fecha}', ['as' => '/Surte/delete', 'uses'=>'SurteController@delete']);
 Route::post('/Surte/search', ['as' => '/Surte/search', 'uses'=>'SurteController@search']);
 
 //rutas para el Categoria
@@ -65,6 +65,9 @@ Route::post('/Inventario/search', ['as' => '/Inventario/search', 'uses'=>'Invent
 Route::resource('Usuario','UsuarioController') ;
 Route::get('/Usuario/delete/{id_Usuario}', ['as' => '/Usuario/delete', 'uses'=>'UsuarioController@delete']);
 Route::post('/Usuario/search', ['as' => '/Usuario/search', 'uses'=>'UsuarioController@search']);
+Route::get('/Usuario/edit', ['as' => '/Usuario/edit', 'uses'=>'UsuarioController@edit']);
+
+
 
 //rutas para Rol
 Route::resource('Rol','RolController') ;

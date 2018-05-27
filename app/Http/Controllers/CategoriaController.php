@@ -22,6 +22,8 @@ class CategoriaController extends Controller
     }
     public function create()
     {
+        //$category=Categoria::pluck('id_Categoria','Descripcion');
+
         return view('Categoria.create');
     }
     public function edit($id)
@@ -49,6 +51,7 @@ class CategoriaController extends Controller
         $payments = Categoria::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
+
     public function service()
     {
 

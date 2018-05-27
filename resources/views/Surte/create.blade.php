@@ -12,22 +12,34 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-0">
-                {!! Form::open(['route' => 'Surte.store', 'method' => 'post', 'novalidate']) !!}
+                {!! Form::open(['route' => 'Surte.store', 'method' => 'post', 'validate']) !!}
                 <div class="form-group">
-                    {!! Form::label('full_name', 'id del producto') !!}
-                    {!! Form::text('id_Producto', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Producto') !!}
+
+                    <select class="form-control" name="id_Producto", id="id_Categoria">
+
+                        @foreach($producto as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('full_name', 'id del proveedor') !!}
-                    {!! Form::text('id_Proveedor', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::label('full_name', 'Proveedor') !!}
+
+                    <select class="form-control" name="id_Proveedor", id="id_Categoria">
+
+                        @foreach($proveedor as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     {!! Form::label('fecha', 'Fecha') !!}
-                    {!! Form::textarea('fecha', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::date('fecha', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('Cantidad', 'Cantidad') !!}
-                    {!! Form::date('Cantidad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::text('Cantidad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::submit('Guardar', ['class' => 'btn btn-outline-success ' ] ) !!}

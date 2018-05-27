@@ -31,7 +31,13 @@
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Descripcion</th>
+                    <th>Usuario</th>
+                    <th>Nombre de remitente</th>
+                    <th>Email</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                    <th>Teléfono</th>
+                    <th>Direccióm</th>
                 </tr>
                 </thead>
                 <tbody>
