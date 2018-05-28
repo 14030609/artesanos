@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Inventario;
 use App\Producto;
 use App\Proveedor;
 use App\Surte;
@@ -22,6 +23,9 @@ class SurteController extends Controller
     {
         $payment = new Surte();
         $payment->create($request->all());
+
+        Inventario::where('id_Producto',$request->id->update(['Cantidad'=>$request->Cantidad]));
+
         return redirect('/Surte');
     }
     public function create()

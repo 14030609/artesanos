@@ -1,19 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Ciudad;
 use
     App\Envios;
+use App\Estado;
+use App\Usuario;
 use DB;
 use Illuminate\Http\Request;
 
 class EnviosController extends Controller
 {
     public function index() {
-        //DB:
-
-        $envios = Envios::all();
-
-        return view('Envios.show',['envios'=>$envios]) ;
+        $envios = DB::table('Envios')
+            -> select('Usuario.nombre_Usuario AS usuario','Envios.nombre AS remitente','Envios.email AS emailRemitente','Ciudad.nombre AS ciudadDestino','Estado.nombre AS estadoDestino','Envios.telefono AS telefonoContacto','Envios.direccion AS direccionDestino', 'Envios.id_Envio')
+            ->join('Usuario','Envios.id_Usuario','=','Usuario.id_Usuario')
+            ->join('Ciudad','Envios.id_Ciudad','=','Ciudad.id_Ciudad')
+            ->join('Estado','Ciudad.id_Estado','=','Estado.id_Estado')
+            ->get();
+        return view('Envios.show',compact('envios')) ;
     }
     public function store(Request $request)
     {
@@ -23,7 +28,11 @@ class EnviosController extends Controller
     }
     public function create()
     {
-        return view('Envios.create');
+        $estado=Estado::pluck('nombre','id_Estado');
+        $ciudad=Ciudad::pluck('nombre','id_Ciudad');
+        $usuario=Usuario::pluck('nombre_Usuario','id_Usuario');
+
+        return view('Envios.create',compact('usuario','estado','ciudad'));
     }
     public function edit($id)
     {

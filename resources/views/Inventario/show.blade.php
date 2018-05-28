@@ -31,8 +31,8 @@
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>id_Producto</th>
-                    <th>id_Categoria</th>
+                    <th>Producto</th>
+                    <th>Categoria</th>
                    <th>Cantidad</th>
                 </tr>
                 </thead>

@@ -190,6 +190,9 @@
                         <a href="/Rol"><i class="fa fa-edit fa-fw"></i> Rol</a>
                     </li>
                     <li>
+                        <a href="/Inventario"><i class="fa fa-edit fa-fw"></i> Inventario</a>
+                    </li>
+                    <li>
                         <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <!-- /.nav-second-level -->
                     </li>

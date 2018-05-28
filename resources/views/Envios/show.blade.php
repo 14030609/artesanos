@@ -17,7 +17,7 @@
 
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-0">
+            <div class="col-md-11 col-md-offset-0">
             {!! Form::open(['route' => '/Envios/search', 'method' => 'post', 'novalidate', 'class' => 'form-inline']) !!}
             <div class="form-group">
                 <label for="exampleInputName2">Nombre</label>
@@ -37,19 +37,19 @@
                     <th>Ciudad</th>
                     <th>Estado</th>
                     <th>Teléfono</th>
-                    <th>Direccióm</th>
+                    <th>Dirección</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($envios as $envio)
                     <tr>
-                        <td>{{ $envio->nombre }}</td>
-                        <td>{{ $envio->email }}</td>
-                        <td>{{ $envio->id_Ciudad }}</td>
-                        <td>{{ $envio->id_Estado }}</td>
-                        <td>{{ $envio->telefono }}</td>
-                        <td>{{ $envio->direccion }}</td>
-                        <td>{{ $envio->id_Usuario }}</td>
+                        <td>{{ $envio->usuario }}</td>
+                        <td>{{ $envio->remitente }}</td>
+                        <td>{{ $envio->emailRemitente }}</td>
+                        <td>{{ $envio->ciudadDestino }}</td>
+                        <td>{{ $envio->estadoDestino }}</td>
+                        <td>{{ $envio->telefonoContacto }}</td>
+                        <td>{{ $envio->direccionDestino }}</td>
 
                         <td>
                             <a class="btn btn-outline-primary btn-xs" href="{{ route('Envios.edit',['id' => $envio->id_Envio] )}}" >Editar</a>

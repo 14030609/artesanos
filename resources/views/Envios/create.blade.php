@@ -16,7 +16,9 @@
 
                 <div class="form-group">
                     {!! Form::label('full_name', 'Usuario') !!}
-                    {!! Form::text('id_Usuario', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+
+                    {!! Form::select('id_Usuario',$usuario,null,['id_Usuario','nombre_Usuario', 'class' =>'form-control']) !!}
+
                 </div>
 
                 <div class="form-group">
@@ -33,13 +35,14 @@
 
                 <div class="form-group">
                     {!! Form::label('full_name', 'Estado') !!}
-                    {!! Form::text('id_Estado', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::select('id_Estado',$estado,null,['id_Estado','nombre', 'class' =>'form-control']) !!}
+
                 </div>
 
 
                 <div class="form-group">
                     {!! Form::label('full_name', 'Ciudad') !!}
-                    {!! Form::text('id_Ciudad', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                    {!! Form::select('id_Ciudad',$ciudad,null,['id_Ciudad','nombre', 'class' =>'form-control']) !!}
                 </div>
 
 
