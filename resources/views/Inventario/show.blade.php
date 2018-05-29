@@ -37,14 +37,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($payments as $payment)
+                @foreach($inventario as $payment)
                     <tr>
-                        <td>{{ $payment->id_Producto }}</td>
-                        <td>{{ $payment->id_Categoria }}</td>
+                        <td>{{ $payment->Nombre }}</td>
+                        <td>{{ $payment->Descripcion }}</td>
                         <td>{{ $payment->Cantidad }}</td>
                         <td>
                             <a class="btn btn-outline-primary btn-xs" href="{{ route('Inventario.edit',['id' => $payment->id_Producto] )}}" >Editar</a>
-                            <a class="btn btn-outline-danger btn-xs" href="{{ route('/Inventario/delete',['id' => $payment->id_Producto] )}}" >Eliminar</a>
                         </td>
 
                     </tr>

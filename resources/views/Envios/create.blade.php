@@ -18,7 +18,6 @@
                     {!! Form::label('full_name', 'Usuario') !!}
 
                     {!! Form::select('id_Usuario',$usuario,null,['id_Usuario','nombre_Usuario', 'class' =>'form-control']) !!}
-
                 </div>
 
                 <div class="form-group">

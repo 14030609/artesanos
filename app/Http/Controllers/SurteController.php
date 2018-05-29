@@ -24,7 +24,62 @@ class SurteController extends Controller
         $payment = new Surte();
         $payment->create($request->all());
 
-        Inventario::where('id_Producto',$request->id->update(['Cantidad'=>$request->Cantidad]));
+//        $producto=Surte::where('id_Producto', '=',$request->id_Producto)->where('fecha', '=',$request->fecha)->get()->last();
+
+        $cantidad = DB::table('Surte as s')
+            -> select('s.Cantidad')
+            ->where('id_Producto', '=',$request->id_Producto)
+             ->where('fecha', '=',$request->fecha)
+            ->get();
+
+       // print_r($cantidad);
+
+        $cantidadSurte = array() ;
+
+        foreach ($cantidad as $d) {
+         foreach ($d as $e)
+         {
+             array_push($cantidadSurte, $e);
+
+         }
+
+         }
+
+//        print_r($cantidadSurte);
+
+
+
+
+
+        $cantidad = DB::table('Surte as s')
+            -> select('i.Cantidad as cantidadInventario' )
+            ->join('Producto as p','p.id_Producto','=','s.id_Producto')
+            ->join('Inventario as i','i.id_Producto','=','p.id_Producto')
+            ->where('p.id_Producto',$request->id_Producto)
+            ->get();
+
+//print_r($cantidad);
+
+
+
+
+       $cantidadIncremento = array() ;
+        foreach ($cantidad as $d) {
+            foreach ($d as $e)
+            {
+                array_push($cantidadIncremento, $e);
+
+            }
+        }
+
+//        print_r($cantidadIncremento);
+
+        $suma=  $cantidadSurte[0]+$cantidadIncremento[0];
+
+  //      echo $suma;
+        $inventario = Inventario::where('id_Producto',$request->id_Producto)->update(['Cantidad'=>$suma]);
+
+//        Inventario::where('id_Producto',$producto->id_Producto->update(['Cantidad'=>$suma]));
 
         return redirect('/Surte');
     }
@@ -32,7 +87,6 @@ class SurteController extends Controller
     {
         $producto=Producto::pluck('Nombre','id_Producto');
         $proveedor=Proveedor::pluck('nombre','id_Proveedor');
-
 
         return view('Surte.create',compact('producto','proveedor'));
         //return view('Surte.create');
@@ -60,8 +114,9 @@ class SurteController extends Controller
         $payments = Surte::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $metodo=Surte::all();
+        return response()->json($metodo);
     }
 }

@@ -52,8 +52,9 @@ class CategoriaController extends Controller
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
 
-    public function service()
+    public function serviceWeb()
     {
-
+        $metodo=Categoria::all();
+        return response()->json($metodo);
     }
 }

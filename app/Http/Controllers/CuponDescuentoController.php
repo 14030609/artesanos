@@ -51,4 +51,5 @@ class CuponDescuentoController extends Controller
         $cupon=CuponDescuento::all();
         return response()->json($cupon);
     }
+
 }

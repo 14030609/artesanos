@@ -58,8 +58,9 @@ class EnviosController extends Controller
         $envios = Envios::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('envios_method.envios_methods_list',['envios'=>$envios]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $metodo=Envios::all();
+        return response()->json($metodo);
     }
 }

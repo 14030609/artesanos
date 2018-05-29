@@ -11,9 +11,12 @@ class InventarioController extends Controller
     public function index() {
         //DB:
 
-        $payments = Inventario::all();
-
-        return view('Inventario.show',['payments'=>$payments]) ;
+        $inventario = DB::table('Inventario as i')
+            -> select('p.Nombre','i.Cantidad','c.Descripcion','p.id_Producto','c.id_Categoria')
+            ->join('Producto as p','p.id_Producto','=','i.id_Producto')
+            ->join('Categoria as c','p.id_Categoria','=','c.id_Categoria')
+            ->get();
+        return view('Inventario.show',compact('inventario')) ;
     }
     public function store(Request $request)
     {
@@ -49,8 +52,9 @@ class InventarioController extends Controller
         $payments = Inventario::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $metodo=Inventario::all();
+        return response()->json($metodo);
     }
 }

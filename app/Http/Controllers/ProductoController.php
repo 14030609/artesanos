@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Categoria;
+use App\Inventario;
 use App\Producto;
 use DB;
 use Illuminate\Http\Request;
@@ -20,6 +21,13 @@ class ProductoController extends Controller
     {
         $payment = new Producto();
         $payment->create($request->all());
+
+
+        $producto=Producto::all()->last();
+
+        $inventario= new Inventario();
+        $inventario->create(['id_Producto'=>$producto->id_Producto,'id_Categoria'=>$request->id_Categoria,'Cantidad'=>0]);
+
         return redirect('/Producto');
     }
     public function create()
@@ -42,17 +50,29 @@ class ProductoController extends Controller
     }
     public function delete($id)
     {
+        $metodo =Inventario::where('id_Producto',$id);
+        $metodo->delete();
+
         $metodo =Producto::where('id_Producto',$id);
         $metodo->delete();
 
+        $surte = DB::table('Producto')
+            -> select('Producto.id_Producto','s.fecha','s.id_Proveedor')
+            ->join('Surte as s','Producto.id_Producto','=','s.id_Producto')
+            ->get();
+
+    //    $metodo =Surte::where('id_Proveedor', '=', $id_Proveedor)->where('id_Producto', '=', $id)->where('fecha','=',$fecha);
+      //  $metodo->delete();
+
+
         return redirect()->back();
+
     }
 
     public function search(Request $request){
         $payments = Producto::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('payment_method.payment_methods_list',['payments'=>$payments]);
     }
-
 
     public function serviceWeb()
     {

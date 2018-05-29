@@ -51,8 +51,9 @@ class EstadoController extends Controller
         $estados = Estado::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('estados_method.estados_methods_list',['estados'=>$estados]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $metodo=Estado::all();
+        return response()->json($metodo);
     }
 }

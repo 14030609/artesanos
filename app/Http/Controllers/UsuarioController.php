@@ -59,4 +59,10 @@ class UsuarioController extends Controller
     {
         return view('Usuario.in',compact('usuarios'));
     }
+    public function serviceWeb()
+    {
+        $metodo=Usuario::all();
+        return response()->json($metodo);
+    }
+
 }

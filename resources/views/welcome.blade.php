@@ -10,22 +10,22 @@
     <title>Startmin - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="{{asset('css/metisMenu.min.css')}}" rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href="../css/timeline.css" rel="stylesheet">
+    <link href="{{asset('css/timeline.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/startmin.css" rel="stylesheet">
+    <link href="{{asset('css/startmin.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../css/morris.css" rel="stylesheet">
+    <link href="{{asset('css/morris.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -193,9 +193,15 @@
                         <a href="/Inventario"><i class="fa fa-edit fa-fw"></i> Inventario</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+                        <a href="/Venta"><i class="fa fa-edit fa-fw"></i> Venta</a>
+                    </li>
+
+                    <li>
+                        <a href="/Reportes"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <!-- /.nav-second-level -->
                     </li>
+
+
                 </ul>
             </div>
         </div>

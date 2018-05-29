@@ -49,8 +49,9 @@ class rolController extends Controller
         $rols = Rol::where('nombre','like','%'.$request->nombre.'%')->get();
         return \View::make('rols_method.rols_methods_list',['rols'=>$rols]);
     }
-    public function service()
+    public function serviceWeb()
     {
-
+        $metodo=Rol::all();
+        return response()->json($metodo);
     }
 }

@@ -1,23 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use
-    App\Ciudad;
-use App\Estado;
-use DB;
-use Illuminate\Http\Request;use Illuminate\Support\Facades\App;
 
-class CiudadController extends Controller
+use Illuminate\Http\Request;
+use DB;
+
+class ReporteController extends Controller
 {
+
     public function index() {
         //DB:
 
-        $ciudads = DB::table('Estado')
-            ->select('Estado.nombre AS estado', 'Ciudad.nombre AS ciudad','Ciudad.id_Ciudad')
-            ->join('Ciudad','Estado.id_Estado','=','Ciudad.id_Estado')
-            ->get();
+        $clientes = DB::table('Usuario')
+            ->count();
 
-        return view('Ciudad.show',compact('ciudads')) ;
+        print_r($clientes);
+
+        $ordenes = DB::table('Venta')
+            ->count();
+
+        $ventas = DB::table('detalleVenta')
+            ->count();
+
+
+        return view('Reportes.datos', compact('clientes','ordenes','ventas')) ;
 
     }
     public function store(Request $request)
@@ -59,7 +65,8 @@ class CiudadController extends Controller
     }
     public function serviceWeb()
     {
-        $metodo=Ciudad::all();
+        $metodo=Reporte::all();
         return response()->json($metodo);
     }
+
 }
