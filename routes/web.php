@@ -17,7 +17,6 @@ Route::get('/', function () {
 Route::resource('MetodosPago','MetodosPagoController') ;
 Route::get('/MetodosPago/delete/{id_MetodosPago}', ['as' => '/MetodosPago/delete', 'uses'=>'MetodosPagoController@delete']);
 Route::post('/MetodosPago/search', ['as' => '/MetodosPago/search', 'uses'=>'MetodosPagoController@search']);
-Route::get('api/v1/MetodosPago','MetodosPagoController@serviceWeb');
 
 //rutas para Venta
 Route::resource('Venta','VentaController') ;
@@ -43,6 +42,8 @@ Route::get('api/v1/detalleVenta','detalleVentaController@serviceWeb');
 
 
 Route::resource('Reportes','ReporteController') ;
+Route::get('/reporte_grafica', ['as' => '/reporte_grafica', 'uses'=>'ReporteController@grafica']);
+
 
 
 

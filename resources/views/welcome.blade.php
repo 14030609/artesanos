@@ -198,7 +198,7 @@
 
                     <li>
                         <a href="/Reportes"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
-                        <!-- /.nav-second-level -->
+                        <a href="/reporte_grafica"><i class="fa fa-edit fa-fw"></i> Gráfica</a>
                     </li>
 
 
@@ -212,7 +212,6 @@
         @yield('update')
         @yield('list')
         @yield('add')
-
 
     </div>
     <!-- /.row -->
